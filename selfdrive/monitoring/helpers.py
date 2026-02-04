@@ -193,7 +193,8 @@ class DriverMonitoring:
 
   def _reset_events(self):
     self.current_events = Events()
-  def _set_timers(self):
+
+  def _set_timers(self, active_monitoring):
     if self.active_monitoring_mode and self.awareness <= self.threshold_prompt:
       if active_monitoring:
         self.step_change = self.settings._DT_DMON / self.settings._DISTRACTED_TIME
@@ -223,7 +224,7 @@ class DriverMonitoring:
       self.step_change = self.settings._DT_DMON / self.settings._AWARENESS_TIME
       self.active_monitoring_mode = False
 
-  def _set_policy(self):
+  def _set_policy(self, brake_disengage_prob, car_speed):
     bp = brake_disengage_prob
     k1 = max(-0.00156*((car_speed-16)**2)+0.6, 0.2)
     bp_normal = max(min(bp / k1, 0.5),0)
