@@ -224,7 +224,7 @@ class DriverMonitoring:
       self.step_change = self.settings._DT_DMON / self.settings._AWARENESS_TIME
       self.active_monitoring_mode = False
 
-  def _set_policy(self, brake_disengage_prob, car_speed):
+  def _set_policy(self):
     bp = brake_disengage_prob
     k1 = max(-0.00156*((car_speed-16)**2)+0.6, 0.2)
     bp_normal = max(min(bp / k1, 0.5),0)
