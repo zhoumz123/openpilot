@@ -194,7 +194,7 @@ class DriverMonitoring:
   def _reset_events(self):
     self.current_events = Events()
 
-  def _set_timers(self, active_monitoring):
+  def _set_timers(self):
     if self.active_monitoring_mode and self.awareness <= self.threshold_prompt:
       if active_monitoring:
         self.step_change = self.settings._DT_DMON / self.settings._DISTRACTED_TIME
