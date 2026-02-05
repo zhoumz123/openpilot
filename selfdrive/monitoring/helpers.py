@@ -128,7 +128,7 @@ EFL = 598.0 # focal length in K
 cam = DEVICE_CAMERAS[("tici", "ar0231")] # corrected image has same size as raw
 W, H = (cam.dcam.width, cam.dcam.height)  # corrected image has same size as raw
 
-def face_orientation_from_net(angles_desc, pos_desc, rpy_calib):
+def face_orientation_from_net(angles_desc):
   # the output of these angles are in device frame
   # so from driver's perspective, pitch is up and yaw is right
 
